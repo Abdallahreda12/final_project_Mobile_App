@@ -25,6 +25,7 @@ class _SignUpState extends State<SignUp> {
   String? selectedGender = 'Male';
   bool receiveNotifications = false;
   bool termsValue = false;
+  String statusValue = "Not Defined";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -184,7 +185,8 @@ class _SignUpState extends State<SignUp> {
                     ),
                     DropdownMenu(
                         onSelected: (value) {
-                          user.status = value ?? "";
+                          statusValue = value!;
+                          user.status = statusValue;
                         },
                         label: const Text("Status"),
                         width: MediaQuery.of(context).size.width,
@@ -243,6 +245,8 @@ class _SignUpState extends State<SignUp> {
                       onTap: () {
                         if (termsValue == true &&
                             globalKey.currentState!.validate()) {
+                          user.gender = selectedGender!;
+                          user.status = statusValue;
                           userList.add(user);
 
                           Navigator.push(

@@ -110,7 +110,10 @@ class _SignInState extends State<SignIn> {
                               context,
                               MaterialPageRoute(
                                 builder: (context) {
-                                  return Homepage(userInfo: userList[i]);
+                                  return UserProfilePage(
+                                    userInfo: userList[i],
+                                    index: i,
+                                  );
                                 },
                               ),
                             );
