@@ -244,6 +244,7 @@ class _SignUpState extends State<SignUp> {
                         if (termsValue == true &&
                             globalKey.currentState!.validate()) {
                           userList.add(user);
+
                           Navigator.push(
                             context,
                             MaterialPageRoute(
